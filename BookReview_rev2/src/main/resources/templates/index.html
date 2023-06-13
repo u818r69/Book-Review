@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head th:fragment="head">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	<meta name="description" content="BookReviewは本の書評をまとめたサイトです。利用者数1万人超え！あなたにぴったりの本がきっと見つかる。">
+	<link rel="icon" href="../../../../favicon.ico">
+	<title>BookReview</title>
+	<link href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css" rel="stylesheet">
+	<style>
+		header {
+			display: flex;
+			justify-content: space-between;
+			padding: 20px;
+			margin-bottom: 50px;
+		}
+
+		h2 {
+			font-weight: bolder;
+			font-size: 20px;
+			margin-top: 30px;
+		}
+
+		.review-button {
+			width: 15em;
+			height: 5em;
+		}
+
+		a {
+			width: 500px;
+		}
+
+		main {
+			margin: 0 auto;
+			max-width: 900px;
+		}
+
+		li {
+			margin-bottom: 10px;
+		}
+
+		.review {
+			display: flex;
+			justify-content: space-between;
+		}
+
+		.review-title {
+			margin-bottom: 10px;
+			text-decoration: underline;
+		}
+
+		.review-author {
+			margin-bottom: 10px;
+		}
+
+		.review-body {}
+
+		.review-content {
+			width: 70%;
+			border: 1px solid;
+			padding: 8px;
+		}
+
+		.review-image {
+			width: 25%;
+		}
+	</style>
+</head>
+
+<body>
+	<!-- header -->
+	<header>
+		<!-- ロゴ -->
+		<h1>
+			<a href="">
+				<img src="images/読書アイコン.png" alt="読書アイコン">
+			</a>
+		</h1>
+		<h2>レビュー一覧</h2>
+		<div>
+			<!-- ボタン -->
+			<a href="create.html">
+				<button class="review-button">レビュー投稿</buttonclass="review-button">
+			</a>
+		</div>
+	</header>
+	<main>
+		<ul>
+			<li th:each="review : ${Reviews}">
+				<div class="review">
+					<div class="review-image">
+						画像
+					</div>
+					<div class="review-content">
+						<p class="review-title">
+							<a href="/" th:text="${review.title}"></a>
+						</p>
+						<p class="review-author" th:text="${review.author}"></p>
+						<p class="review-body" th:text="${review.body}"></p>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</main>
+</body>
+
+</html>
